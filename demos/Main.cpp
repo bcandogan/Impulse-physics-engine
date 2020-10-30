@@ -1,15 +1,23 @@
 #include<iostream>
-#include<Math/impulseEss.h>
-
+#include<impulse/impulseEss.h>
+#include<impulse/particle.h>
 
 int main() {
 
-	impulse::vec3 vec = { 2,3,4 };
-	impulse::vec3 vec1(1, 2, 3);
-	impulse::vec3 vec2;
-
-	vec2 = vec1 + vec;
+	float mass = 5.0f;
+	float drag = 0.999f;
+	float time = 25.0f, timeStamp = 0.33f;
+	impulse::vec3 ilkHiz = { 0,0,0 };
+	impulse::vec3 ilkPoz = { 2,5,6 };
     
-	std::cout<<"Succesful Build"<<std::endl;
+	impulse::Particle parcacik(ilkPoz, ilkHiz, mass, drag);
+	
+	while (time > 0.0f) {
+		parcacik.solver(timeStamp);
+		time -= timeStamp;
+	}
 
+	parcacik.getPosition().outputVec();
+	std::cout << std::endl;
+	parcacik.getVelocity().outputVec();
 }

@@ -1,7 +1,7 @@
- set(FILES "${CMAKE_CURRENT_SOURCE_DIR}/impulseEss.h")
+ set(FILES "${CMAKE_CURRENT_SOURCE_DIR}/impulseEss.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/particle.cpp" )
  set(SUBDIRECTORIES "")
- set(RELATIVE_PATH "include/Math")
- 
+ set(RELATIVE_PATH "src/impulse")
+	
  
  foreach(VAR ${SUBDIRECTORIES})
  
